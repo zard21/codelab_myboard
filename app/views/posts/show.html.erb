@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @post.content %>
+</p>
+
+<hr>
+<p>
+  <strong>Comment</strong>
+  <ul id="comments">
+    <% @post.comments.each do |comment| %>
+    <li id="comment-<%= comment.id %>">
+      <%= comment.content %>&nbsp;
+      <%= link_to '[삭제]', comment_path(comment), method: :delete, remote: true, data: { confirm: '정말로 삭제하시겠습니까?' } %>
+    </li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <%= simple_form_for [@post, @post.comments.new], remote: true do |form| %>
+    <%= form.input :content, label: '댓글' %>
+    <%= form.button :submit, '작성', class: 'btn btn-primary' %>
+  <% end %>
+</p>
+
+<hr>
+
+<%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-default' %>
+<%= link_to 'Back', posts_path, class: 'btn btn-default' %>

@@ -1,0 +1,15 @@
+<%= simple_form_for(@post) do |form| %>
+
+
+  <div class="form-inputs">
+    <%= form.input :title, id: :post_title, label: '제목' %>
+    <%= form.input :content, id: :post_content, label: '내용', input_html: { rows: 10 } %>
+    <%= form.input :tag, id: :post_tag, label: '태그' %>
+  </div>
+
+  <div class="actions">
+    <%= form.button :submit, '작성', class: 'btn btn-default' %>
+    <%= link_to '목록으로', posts_path, class: 'btn btn-primary' %>
+  </div>
+
+<% end %>

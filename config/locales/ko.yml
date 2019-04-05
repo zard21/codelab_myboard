@@ -1,0 +1,9 @@
+---
+ko:
+  activerecord:
+    errors:
+      messages:
+        validation_blank: "%{name}을 입력해 주세요."
+        validation_length: "%{name}은 %{length}자 이내로 입력해 주세요."
+  errors:
+    format: "%{message}"
